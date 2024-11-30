@@ -15,9 +15,9 @@
 (defn seat-passenger
   [available assigned]
   (if (and assigned
-           (some #(= % assigned) available))
+           (contains? available assigned))
     assigned
-    (rand-nth available)))
+    (rand-nth (seq available))))
 
 (defn simulate-seating
   "Seat n passengers with assigned seats.
@@ -30,8 +30,8 @@
        (reduce (fn [[seated available] assigned]
                  (let [seat-taken (seat-passenger available assigned)]
                    [(conj seated [assigned seat-taken])
-                    (remove #(= % seat-taken) available)]))
-               [[] (range n)])
+                    (disj available seat-taken)]))
+               [[] (set (range n))])
        first))
 
 (defn simulations
