@@ -48,7 +48,7 @@
           {:success 0 :total 0}
           (range rounds)))
 
-;; Now let's find out how many times out of 10000 the last boarding passenger on a plane
+;; Now let's find out how many times out of 5000 the last boarding passenger on a plane
 ;; with 100 seats will find their assigned seat available.
 (defn first-lost-boarding-pass
   [n]
