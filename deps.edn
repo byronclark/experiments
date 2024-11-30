@@ -10,12 +10,14 @@
                                :jvm-opts ["-Dclojure.main.report=stdout"]
                                :exec-args {:index "src/index.clj"
                                            :compile-css true
-                                           :paths ["src/experiment/*/*.clj"]}
+                                           :paths ["src/experiment/*/*.clj"
+                                                   "src/experiment/*.clj"]}
                                :main-opts ["-m" "babashka.cli.exec"]}
            :serve {:exec-fn nextjournal.clerk/serve!
                    :exec-args {:index "src/index.clj"
                                :watch-paths ["src"]
                                :port 7777
                                :compile-css true
-                               :paths ["src/experiment/*/*.clj"]}
+                               :paths ["src/experiment/*/*.clj"
+                                       "src/experiment/*.clj"]}
                    :main-opts ["-m" "babashka.cli.exec"]}}}
